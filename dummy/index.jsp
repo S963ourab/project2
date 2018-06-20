@@ -1,3 +1,8 @@
+<%@ page import="java.sql.*" %>
+<%ResultSet resultset =null;
+String state="";
+%>
+
 <html>
 
     <title>Creating a question bank
@@ -19,24 +24,49 @@
           function changeAction(val)
 		  {
 		    document.getElementById("qtype").action = val;
+		    state=val;
+		    if(state=="mcq.jsp")
+   			 state="mcq";   
+    		else
+    			state="";
+    		console.log(state);
+    		
 		  }
 		  function changeAction2(val)
 		  {
 		    document.getElementById("insert").href = val;
+		    
 		  }
         </script>
     </head>
     <body>
+    	 
 
         <h3><a id="insert" href="add.jsp" target="blank">Add Questions</a></h3>
 		<b>MCQ</b>&nbsp;&nbsp;&nbsp;<input type ="radio" name = "option2" value ="add2.jsp" onchange="changeAction2(this.value)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	    <b>Theoritical</b>&nbsp;&nbsp;&nbsp;<input type ="radio" name = "option2" value ="add.jsp" checked onchange="changeAction2(this.value)"><br><br><br>
+	    <b>Theoretical</b>&nbsp;&nbsp;&nbsp;<input type ="radio" name = "option2" value ="add.jsp" checked onchange="changeAction2(this.value)"><br><br><br>
         	
             <form method="POST" id="qtype" action="project.jsp">
 		<h1>Generate Question Paper</h1>
 		       <b>MCQ</b>&nbsp;&nbsp;&nbsp;<input type ="radio" name = "option" value ="mcq.jsp" onchange="changeAction(this.value)">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			   <b>Theoritical</b>&nbsp;&nbsp;&nbsp;<input type ="radio" name = "option" value ="project.jsp" checked onchange="changeAction(this.value)"><br><br><br>
-			    <label for="subject"><b>Subject :</b></label><br/> <input type="text" name="subject" /><br><br>
+			   <b>Theoretical</b>&nbsp;&nbsp;&nbsp;<input type ="radio" name = "option" value ="project.jsp" checked onchange="changeAction(this.value)"><br><br>
+			    
+
+
+			  
+
+
+			    
+			    <div id="selectsubj">
+				<select name="subject">
+        		<%  while(resultset.next()){ %>
+      	        <option value="<%= resultset.getString(1)%>"><%= resultset.getString(1)%></option>
+                <% } %>
+        		</select><br><br>
+        		</div>
+
+
+
                <label for="total"><b>Total marks :</b></label><br/> <input type="text" name="total" /><br><br>
 			   <label for="total"><b>Overall Difficulty :</b></label><br/> <input type="number" name="difficulty" /><br><br>
                <label for="five"><b>No. of Five Marks Question : </b></label><br/>  <input type="number" name="five" /><br><br>
@@ -47,6 +77,13 @@
 		<lable id="error"></lable>
             </form>
            
-       
+       <%
+//**Should I input the codes here?**
+        
+        catch(Exception e)
+        {
+             out.println("wrong entry"+e);
+        }
+%>
     </body>
 </html>
