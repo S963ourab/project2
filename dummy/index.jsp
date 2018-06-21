@@ -1,13 +1,12 @@
-<%@ page import="java.sql.*" %>
-<%ResultSet resultset =null;
-String state="";
-%>
+
 
 <html>
 
     <title>Creating a question bank
     </title>
     <head>
+    	<link rel="stylesheet" href="mbubble.css" type="text/css" />
+    	<script src="mbubble.js" type="text/javascript"></script>
 <style>
 	form {
     	border: 2px solid ;
@@ -57,14 +56,7 @@ String state="";
 
 
 			    
-			    <div id="selectsubj">
-				<select name="subject">
-        		<%  while(resultset.next()){ %>
-      	        <option value="<%= resultset.getString(1)%>"><%= resultset.getString(1)%></option>
-                <% } %>
-        		</select><br><br>
-        		</div>
-
+			    
 
 
                <label for="total"><b>Total marks :</b></label><br/> <input type="text" name="total" /><br><br>
@@ -77,13 +69,6 @@ String state="";
 		<lable id="error"></lable>
             </form>
            
-       <%
-//**Should I input the codes here?**
-        
-        catch(Exception e)
-        {
-             out.println("wrong entry"+e);
-        }
-%>
+  
     </body>
 </html>

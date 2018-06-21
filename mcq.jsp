@@ -1,11 +1,20 @@
 <%@page import="java.sql.*"%>
 <%@page import="java.lang.Integer"%>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	 <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
 <%
 	
 	 Class.forName("com.mysql.jdbc.Driver").newInstance();
 	Connection con=DriverManager.getConnection("jdbc:mysql://localhost/qbank","root","root");
-	 out.write("<html>");
-     out.write("<head/>");
+	// out.write("<html>");
+   //  out.write("<head/>");
 	 out.write("<center><h1>");
 	 String subject = request.getParameter("subject");
 	 out.write(subject);

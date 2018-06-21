@@ -1,8 +1,14 @@
 <%@ page import="java.sql.*" %>
 <%ResultSet resultset =null;%>
+<!DOCTYPE html>
+<html lang="en">
 
-<HTML>
+
 <HEAD>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <TITLE>ADD QUESTION</TITLE>
     <style>
     form {

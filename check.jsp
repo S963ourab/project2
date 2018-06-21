@@ -1,4 +1,14 @@
 <%@page import="java.sql.*"%>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	 <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
 <%
 	int count=0;
 	Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -22,3 +32,5 @@
 	}
 	out.println(count+" question(s) were correct");
 %>
+</body>
+</html>

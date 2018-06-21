@@ -1,0 +1,22 @@
+
+html, body {
+	padding:0;
+	margin:0;
+	min-height:100%;
+	background-color:#ffffff;
+	background-image:linear-gradient(to bottom,#e2ebef,#747575);
+	background-attachment:fixed;
+}
+html * { z-index: 1; position:relative; }
+#bubbleContainer {
+	z-index:0;
+	overflow:hidden;
+	position:fixed;
+	height:100%;
+	width:100%;
+}
+#bubbleContainer div {
+	position:fixed;
+	z-index:-1;
+	border-radius:1000px;
+}
